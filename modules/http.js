@@ -7,6 +7,22 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end("<h1>Homie Page Yooo</h1>");
   }
+
+  if (req.url === "/users") {
+    const users = [
+      {
+        name: "John Doe",
+        email: "johndoe@gmail.com",
+      },
+      {
+        name: "Maria Joana",
+        email: "mariajoana@gmail.com",
+      },
+    ];
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(users));
+  }
 });
 
 server.listen(port, () => console.log(`Listening On Port ${port}`));
